@@ -11,6 +11,7 @@ type CacheModule = {
     clients: {
         redisClient?: Redis;
         memoryCache?: LRUCache<any, any>;
+        sqliteCache?: any;
     };
 };
 

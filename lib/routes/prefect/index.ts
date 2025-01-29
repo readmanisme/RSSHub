@@ -29,13 +29,14 @@ import ofetch from '@/utils/ofetch'; // 统一使用的请求库
 import { load } from 'cheerio'; // 类似 jQuery 的 API HTML 解析器
 import cache from '@/utils/cache';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function handler(ctx: any) {
-    ctx.state.source = 'prefect';
     const baseUrl = 'https://www.prefect.io';
     const response = await ofetch(`https://www.prefect.io/blog`);
     const $ = load(response);
     // 选择类名为ease flex flex-col overflow-hidden rounded-20 bg-space transition-colors duration-500 hover:bg-deepSpace 的a元素
     const items = $(String.raw`a.ease.flex.flex-col.overflow-hidden.rounded-20.bg-space.transition-colors.duration-500.hover\:bg-deepSpace`)
+        // 这种写法很不建议，因为如果在下面的正文提取中使用这种写法，会找不到内容。
         .toArray()
         .map((item) => {
             const item_2 = $(item);
