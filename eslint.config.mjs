@@ -213,7 +213,7 @@ export default [{
         '@stylistic/comma-style': 'error',
         '@stylistic/function-call-spacing': 'error',
         '@stylistic/keyword-spacing': 'error',
-        '@stylistic/linebreak-style': 'error',
+        '@stylistic/linebreak-style': 'off',
 
         '@stylistic/lines-around-comment': ['error', {
             beforeBlockComment: false,

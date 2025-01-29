@@ -14,11 +14,13 @@ const rofetch = createFetch().create({
         if (options.retry) {
             logger.warn(`Request ${request} with error ${response.status} remaining retry attempts: ${options.retry}`);
             if (!options.headers) {
+                // @ts-ignore
                 options.headers = {};
             }
             if (options.headers instanceof Headers) {
                 options.headers.set('x-prefer-proxy', '1');
             } else {
+                // @ts-ignore
                 options.headers['x-prefer-proxy'] = '1';
             }
         }
